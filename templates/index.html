@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Relay Control</title>
+</head>
+
+<body style="text-align:center; margin-top:50px;">
+
+<h1>⚡ Relay Control</h1>
+
+<button onclick="turnOn()">ON</button>
+<button onclick="turnOff()">OFF</button>
+
+<script>
+
+function turnOn() {
+    fetch("/control", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            state: "ON"
+        })
+    });
+}
+
+function turnOff() {
+    fetch("/control", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            state: "OFF"
+        })
+    });
+}
+
+</script>
+
+</body>
+</html>
